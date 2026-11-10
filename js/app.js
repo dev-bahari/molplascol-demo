@@ -157,7 +157,7 @@
   function meterHTML(sub) {
     var left = FREE - sub, pct = Math.min(100, sub / FREE * 100);
     var txt = left > 0 ? 'Te faltan <b>' + fmt(left) + '</b> para el <b>envío gratis</b>' : '<b>¡Tienes envío gratis!</b>';
-    return '<div class="meter">' + txt + '<div class="meter-bar"><i style="width:' + pct + '%"></i></div></div>';
+    return '<div class="meter">' + txt + '<div class="meter-bar"><i style="transform:scaleX(' + (pct / 100) + ')"></i></div></div>';
   }
   function linesHTML() {
     return cart.map(function (l) {

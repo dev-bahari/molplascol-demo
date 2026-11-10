@@ -114,7 +114,7 @@ button{cursor:pointer}
 /* ---------- free shipping meter ---------- */
 .meter{background:var(--accent-soft);border-radius:var(--r);padding:12px 14px;font-size:13.5px;color:var(--ink);margin:14px 0 4px}
 .meter-bar{height:6px;border-radius:3px;background:#F6D9BE;margin-top:8px;overflow:hidden}
-.meter-bar i{display:block;height:100%;background:var(--accent-strong);border-radius:3px;transition:width .3s}
+.meter-bar i{display:block;height:100%;width:100%;background:var(--accent-strong);border-radius:3px;transform-origin:left;transition:transform .3s}
 
 /* ---------- cart lines ---------- */
 .line-item{display:grid;grid-template-columns:76px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
