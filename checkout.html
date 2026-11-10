@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Finalizar compra — Moldes &amp; Plásticos de Colombia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="checkout">
+<header class="co-header"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Volver a la tienda"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="cog" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7A43C"/><stop offset="1" stop-color="#E2571A"/></linearGradient></defs><g fill="none" stroke="url(#cog)" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round"><path d="M6 41V15.5L24 5.5l18 10V33"/><path d="M13 41V19.5l11-6.2 11 6.2V30"/><path d="M20 41V23.6l4-2.2 4 2.2v4"/></g><rect x="27.5" y="27" width="4.6" height="8.5" rx="1" fill="#2C2A7C"/></svg><span class="brand-txt">Moldes &amp; Plásticos<small>de Colombia</small></span></a>
+  <span class="secure"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Pago 100% seguro</span>
+</div></header>
+
+<div class="co" id="co">
+  <main class="co-main">
+    <form id="coForm" novalidate>
+      <h2>Contacto</h2>
+      <div class="field"><label for="email">Correo electrónico</label><input id="email" name="email" type="email" autocomplete="email" required data-rule="email"><span class="err">Escribe un correo válido.</span></div>
+      <div class="field"><label for="phone">Celular (WhatsApp)</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="numeric" placeholder="300 000 0000" required data-rule="phone"><span class="err">Escribe un celular colombiano de 10 dígitos.</span></div>
+
+      <h2>Entrega</h2>
+      <div class="row2">
+        <div class="field"><label for="first">Nombre</label><input id="first" name="first" autocomplete="given-name" required><span class="err">Campo obligatorio.</span></div>
+        <div class="field"><label for="last">Apellidos</label><input id="last" name="last" autocomplete="family-name" required><span class="err">Campo obligatorio.</span></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="dep">Departamento</label><select id="dep" name="dep" required></select><span class="err">Selecciona un departamento.</span></div>
+        <div class="field"><label for="city">Ciudad o municipio</label><input id="city" name="city" autocomplete="address-level2" required><span class="err">Campo obligatorio.</span></div>
+      </div>
+      <div class="field"><label for="addr">Dirección</label><input id="addr" name="addr" autocomplete="street-address" placeholder="Calle, número, barrio" required><span class="err">Campo obligatorio.</span></div>
+      <div class="field"><label for="addr2">Apartamento, local, indicaciones (opcional)</label><input id="addr2" name="addr2"></div>
+
+      <h2>Método de envío</h2>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="ship" value="std" data-label="Estándar" checked><span><b>Envío estándar</b><small>3 a 5 días hábiles · toda Colombia</small></span><span class="r-price" id="stdPrice"></span></label>
+        <label class="radio"><input type="radio" name="ship" value="exp" data-label="Express"><span><b>Express</b><small>24 a 48 h · ciudades principales</small></span><span class="r-price">$19.900</span></label>
+        <label class="radio"><input type="radio" name="ship" value="pick" data-label="Recoger en planta"><span><b>Recoger en planta</b><small>Lun–Vie 7:30–17:00 · Sáb 8:00–14:00</small></span><span class="r-price">Gratis</span></label>
+      </div>
+
+      <h2>Pago</h2>
+      <div class="radios">
+        <label class="radio"><input type="radio" name="pay" value="wompi" data-label="Tarjeta / PSE / Nequi" checked><span><b>Tarjeta, PSE o Nequi</b><small>Pasarela segura Wompi</small></span><span class="pay-logos"><span>VISA</span><span>MC</span><span>PSE</span></span></label>
+        <label class="radio"><input type="radio" name="pay" value="siste" data-label="Sistecrédito"><span><b>Sistecrédito</b><small>Paga a cuotas, aprobación en minutos</small></span></label>
+        <label class="radio"><input type="radio" name="pay" value="addi" data-label="Addi"><span><b>Addi</b><small>Compra hoy, paga después</small></span></label>
+        <label class="radio"><input type="radio" name="pay" value="cod" data-label="Contraentrega"><span><b>Pago contraentrega</b><small>Pagas al recibir en tu dirección</small></span></label>
+      </div>
+
+      <div class="demo-note"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>Sitio de demostración: al pagar no se procesa ningún cobro ni se envían datos. En la versión Shopify este paso redirige a la pasarela elegida.</span></div>
+      <button class="btn btn-dark btn-block" id="payBtn" type="submit" style="height:56px;font-size:16px">Pagar</button>
+      <p style="text-align:center;margin-top:16px"><a class="link" href="carrito.html">Volver al carrito</a></p>
+    </form>
+  </main>
+  <aside class="co-side">
+    <div class="co-side-inner">
+      <div id="coLines"></div>
+      <div class="totals" id="coTotals"></div>
+    </div>
+  </aside>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
