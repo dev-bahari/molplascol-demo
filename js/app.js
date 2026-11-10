@@ -64,6 +64,14 @@
       colors: [c('Verde', '#2EAA3F', 'Verde'), c('Azul', '#1F6FD1', 'Azul'), c('Amarillo', '#F5C518', 'Amarillo'), c('Rojo', '#D62828', 'Rojo')],
       desc: 'Volqueta de juguete con tolva basculante, cabina detallada y llantas de gran agarre para todo tipo de terreno. Inyectada en plástico de alto impacto, libre de carga estática y con acabados que no se despintan.',
       specs: [['Material', 'Polipropileno de alto impacto'], ['Edad', 'Desde 3 años'], ['Incluye', 'Tolva basculante funcional'], ['Origen', 'Hecho en Colombia']] },
+    { id: 'carro-paseador', name: 'Carro paseador MPC con manija', col: 'jugueteria', sub: 'Montables y triciclos', price: 159900, compare: 179900, isNew: true, img: 'img/hero-paseador.webp', pos: '50% center',
+      colors: [c('Azul / Verde lima', '#1F4FD1', 'Azul')],
+      desc: 'Carro montable con manija trasera para que papá o mamá lo empujen y baranda de seguridad desmontable. Cuando tu hijo crece, quitas la manija y la baranda y queda como montable de impulso. Timón con pito y espacio de almacenamiento bajo el asiento.',
+      specs: [['Material', 'Polietileno de alto impacto'], ['Edad', '1 a 3 años'], ['Peso máximo', '25 kg'], ['Origen', 'Hecho en Colombia']] },
+    { id: 'jeep-montable', name: 'Jeep montable MPC', col: 'jugueteria', sub: 'Montables y triciclos', price: 189900, isNew: true, img: 'img/hero-jeeps.webp', pos: '66% center',
+      colors: [c('Azul', '#1F4FD1', 'Azul'), c('Rojo', '#D62828', 'Rojo'), c('Verde', '#7DC242', 'Verde'), c('Rosado', '#EE7FB0', 'Rosado')],
+      desc: 'Jeep montable de impulso con barra antivuelco, timón y llantas anchas de alto agarre. Gráficos de competencia y cuatro colores para escoger. Resiste el juego dentro y fuera de casa.',
+      specs: [['Material', 'Polietileno de alto impacto'], ['Edad', '2 a 5 años'], ['Peso máximo', '30 kg'], ['Origen', 'Hecho en Colombia']] },
     { id: 'triciclo-policia', name: 'Triciclo Policía Nacional', col: 'jugueteria', sub: 'Montables y triciclos', price: 89900, isNew: true, img: 'img/ig10.jpg',
       colors: [c('Azul / Verde', '#2B4FB5', 'Azul')],
       desc: 'Triciclo con diseño inspirado en la Policía Nacional de Colombia: manubrio ergonómico, sillín anatómico y platón trasero para llevar sus juguetes. Estructura reforzada pensada para el uso diario.',
@@ -115,6 +123,7 @@
   ];
   PRODUCTS.forEach(function (p, i) { p.rank = i; });
   var FAM = { Rojo: '#D62828', Azul: '#1F6FD1', Verde: '#2EAA3F', Amarillo: '#F5C518', Naranja: '#F08A24', Rosado: '#EE7FB0', Blanco: '#F2F2EE', Beige: '#E9D9B8', Negro: '#22212B', 'Café': '#6B4226', Multicolor: MULTI };
+  var pos = function (p) { return p && p.pos ? ' style="object-position:' + p.pos + '"' : ''; };
   var byId = function (id) { return PRODUCTS.filter(function (p) { return p.id === id; })[0]; };
   var inStock = function (p) { return !p.soldout && p.colors.some(function (x) { return !x.out; }); };
 
@@ -163,7 +172,7 @@
     return cart.map(function (l) {
       var k = calc(l), key = esc(l.id + '|' + l.c);
       return '<div class="line-item" data-key="' + key + '">' +
-        '<a href="producto.html?p=' + l.id + '"><img src="' + k.p.img + '" alt="' + esc(k.p.name) + '"></a>' +
+        '<a href="producto.html?p=' + l.id + '"><img src="' + k.p.img + '" alt="' + esc(k.p.name) + '"' + pos(k.p) + '></a>' +
         '<div><a class="li-name" href="producto.html?p=' + l.id + '">' + esc(k.p.name) + '</a><div class="li-meta">Color: ' + esc(l.c) + ' · ' + fmt(k.p.price) + ' c/u</div>' +
         (k.d ? '<span class="li-tier">Precio por mayor −' + (k.d * 100) + '%</span>' : '') +
         '<div><span class="qty"><button type="button" data-dec aria-label="Quitar uno">' + ic('minus') + '</button><input data-qty inputmode="numeric" value="' + l.q + '" aria-label="Cantidad"><button type="button" data-inc aria-label="Agregar uno">' + ic('plus') + '</button></span>' +
@@ -289,7 +298,7 @@
       (p.isNew ? '<span class="badge new">Nuevo</span>' : '');
     var sw = p.colors.slice(0, 5).map(function (x) { return '<span class="swatch" title="' + esc(x.n) + '" style="background:' + x.h + '"></span>'; }).join('') +
       '<small>' + (p.colors.length > 1 ? p.colors.length + ' colores' : esc(p.colors[0].n)) + '</small>';
-    return '<article class="card"><a class="card-media" href="producto.html?p=' + p.id + '"><img src="' + p.img + '" alt="' + esc(p.name) + '" loading="lazy"><span class="badges">' + badges + '</span></a>' +
+    return '<article class="card"><a class="card-media" href="producto.html?p=' + p.id + '"><img src="' + p.img + '" alt="' + esc(p.name) + '" loading="lazy"' + pos(p) + '><span class="badges">' + badges + '</span></a>' +
       (ok ? '<button class="card-add" data-add="' + p.id + '" data-color="' + esc(first.n) + '" aria-label="Agregar ' + esc(p.name) + ' al carrito">' + ic('bag') + '<span class="lbl">Agregar al carrito</span></button>'
           : '<button class="card-add" disabled>' + ic('clock') + '<span class="lbl">Próximamente</span></button>') +
       '<div class="card-info"><div class="swatches">' + sw + '</div><a class="card-title" href="producto.html?p=' + p.id + '">' + esc(p.name) + '</a><div class="card-sub">' + esc(p.sub) + '</div>' +
@@ -297,7 +306,40 @@
   }
 
   /* ---------------- páginas ---------------- */
+  function initSlider(root) {
+    if (!root) return;
+    var slides = $$('.slide', root), dots = $('.dots', root), i = 0, timer = null, x0 = null;
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    dots.innerHTML = slides.map(function (_, n) { return '<button type="button" aria-label="Ir a la diapositiva ' + (n + 1) + '"></button>'; }).join('');
+    function go(n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach(function (s, k) {
+        var on = k === i;
+        s.classList.toggle('on', on); s.setAttribute('aria-hidden', on ? 'false' : 'true');
+        $$('.cap-card a', s).forEach(function (a) { a.tabIndex = on ? 0 : -1; });
+      });
+      $$('button', dots).forEach(function (d, k) { d.classList.toggle('on', k === i); d.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+    }
+    function stop() { clearInterval(timer); timer = null; }
+    function play() { if (reduce || slides.length < 2) return; stop(); timer = setInterval(function () { go(i + 1); }, 6500); }
+    $('.prev', root).addEventListener('click', function () { go(i - 1); play(); });
+    $('.next', root).addEventListener('click', function () { go(i + 1); play(); });
+    dots.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) { go($$('button', dots).indexOf(b)); play(); } });
+    root.addEventListener('mouseenter', stop); root.addEventListener('mouseleave', play);
+    root.addEventListener('focusin', stop); root.addEventListener('focusout', play);
+    root.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+    root.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+      play();
+    });
+    document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else play(); });
+    go(0); play();
+  }
+
   function pageHome() {
+    initSlider($('#heroSlider'));
     $$('[data-row]').forEach(function (row) {
       row.innerHTML = row.dataset.row.split(',').map(function (id) { return card(byId(id)); }).join('');
     });
@@ -407,7 +449,7 @@
     $('#crumbHere').textContent = p.name;
     var off = p.compare ? Math.round((1 - p.price / p.compare) * 100) : 0;
     $('#pdp').innerHTML =
-      '<div class="gallery single"><div class="main-media"><img src="' + p.img + '" alt="' + esc(p.name) + '"><span class="badges">' +
+      '<div class="gallery single"><div class="main-media"><img src="' + p.img + '" alt="' + esc(p.name) + '"' + pos(p) + '><span class="badges">' +
         (p.soldout ? '<span class="badge out">Agotado</span>' : off ? '<span class="badge sale">−' + off + '%</span>' : '') + (p.isNew ? '<span class="badge new">Nuevo</span>' : '') + '</span></div></div>' +
       '<div class="info"><div class="vendor">Moldes &amp; Plásticos · ' + esc(p.sub) + '</div><h1>' + esc(p.name) + '</h1>' +
         '<div class="price"><b' + (p.compare ? ' class="sale"' : '') + '>' + fmt(p.price) + '</b>' + (p.compare ? '<s>' + fmt(p.compare) + '</s>' : '') + '</div>' +
@@ -486,7 +528,7 @@
       $('#stdPrice').textContent = t.sub >= FREE ? 'Gratis' : fmt(SHIP);
       $('#coLines').innerHTML = cart.map(function (l) {
         var k = calc(l);
-        return '<div class="mini-line"><div class="ph"><img src="' + k.p.img + '" alt=""><span class="q">' + l.q + '</span></div><div><div class="n">' + esc(k.p.name) + '</div><div class="v">' + esc(l.c) + (k.d ? ' · por mayor −' + k.d * 100 + '%' : '') + '</div></div><div class="p">' + fmt(k.total) + '</div></div>';
+        return '<div class="mini-line"><div class="ph"><img src="' + k.p.img + '" alt=""' + pos(k.p) + '><span class="q">' + l.q + '</span></div><div><div class="n">' + esc(k.p.name) + '</div><div class="v">' + esc(l.c) + (k.d ? ' · por mayor −' + k.d * 100 + '%' : '') + '</div></div><div class="p">' + fmt(k.total) + '</div></div>';
       }).join('');
       $('#coTotals').innerHTML = '<div class="sum-row"><span>Subtotal</span><span>' + fmt(t.sub) + '</span></div>' +
         (t.save ? '<div class="sum-row" style="color:var(--ok)"><span>Ahorro por mayor</span><span>−' + fmt(t.save) + '</span></div>' : '') +
@@ -515,7 +557,7 @@
         email: fd.get('email'), name: fd.get('first') + ' ' + fd.get('last'),
         addr: fd.get('addr') + ', ' + fd.get('city') + ', ' + fd.get('dep'),
         ship: $('input[name=ship]:checked').dataset.label, pay: $('input[name=pay]:checked').dataset.label,
-        lines: cart.map(function (l) { var k = calc(l); return { n: k.p.name, c: l.c, q: l.q, t: k.total, img: k.p.img }; }),
+        lines: cart.map(function (l) { var k = calc(l); return { n: k.p.name, c: l.c, q: l.q, t: k.total, img: k.p.img, pos: k.p.pos }; }),
         sub: t.sub, shipCost: s, total: t.sub + s
       };
       store.set('mpc_order', order); cart = []; store.set('mpc_cart', cart);
@@ -529,7 +571,7 @@
     if (!o) { el.innerHTML = '<h1>No encontramos un pedido reciente</h1><p><a class="btn btn-dark" href="coleccion.html">Ir al catálogo</a></p>'; return; }
     el.innerHTML = '<div class="ok-ico">' + ic('check') + '</div><h1>¡Gracias por tu compra, ' + esc(o.name.split(' ')[0]) + '!</h1>' +
       '<div class="order-no">Pedido ' + o.no + '</div><p>Enviamos la confirmación a <b>' + esc(o.email) + '</b>. Te avisaremos por WhatsApp cuando tu pedido salga de planta.</p>' +
-      '<div class="confirm-box">' + o.lines.map(function (l) { return '<div class="mini-line"><div class="ph"><img src="' + l.img + '" alt=""><span class="q">' + l.q + '</span></div><div><div class="n">' + esc(l.n) + '</div><div class="v">' + esc(l.c) + '</div></div><div class="p">' + fmt(l.t) + '</div></div>'; }).join('') +
+      '<div class="confirm-box">' + o.lines.map(function (l) { return '<div class="mini-line"><div class="ph"><img src="' + l.img + '" alt=""' + pos(l) + '><span class="q">' + l.q + '</span></div><div><div class="n">' + esc(l.n) + '</div><div class="v">' + esc(l.c) + '</div></div><div class="p">' + fmt(l.t) + '</div></div>'; }).join('') +
       '<div class="totals"><div class="sum-row"><span>Subtotal</span><span>' + fmt(o.sub) + '</span></div><div class="sum-row"><span>Envío · ' + esc(o.ship) + '</span><span>' + (o.shipCost ? fmt(o.shipCost) : 'Gratis') + '</span></div>' +
       '<div class="sum-row total"><span>Total</span><span>' + fmt(o.total) + '</span></div></div>' +
       '<div class="totals"><div class="sum-row"><span>Entrega</span><span style="text-align:right">' + esc(o.addr) + '</span></div><div class="sum-row"><span>Pago</span><span>' + esc(o.pay) + '</span></div></div></div>' +

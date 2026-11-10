@@ -13,27 +13,34 @@
 <div id="hdr"></div>
 <main>
 
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <h1>Juguetes que aguantan <span>todo el juego</span>.</h1>
-        <p>Triciclos, volquetas, jeeps y artículos para el hogar diseñados y fabricados en nuestra planta. Compra en línea o pide precio por mayor para tu negocio.</p>
-        <div class="hero-cta">
-          <a class="btn btn-dark" href="coleccion.html?c=jugueteria">Comprar juguetería</a>
-          <a class="btn btn-line" href="mayoristas.html">Precios por mayor</a>
-        </div>
-        <div class="hero-facts">
-          <div><b>Moldes propios</b>Diseño e inyección en planta</div>
-          <div><b>Envío nacional</b>Gratis desde $150.000</div>
-          <div><b>Paga a cuotas</b>Sistecrédito y Addi</div>
-        </div>
-      </div>
-      <div class="mosaic">
-        <a href="producto.html?p=triciclo-racing-86"><img src="img/ig11.jpg" alt="Triciclo Racing 86 rojo"><span class="tag">Triciclo Racing 86</span></a>
-        <a href="producto.html?p=jeep-mpc"><img src="img/ig03.jpg" alt="Jeeps MPC en cinco colores"><span class="tag">Jeep MPC</span></a>
-        <a href="producto.html?p=mug-roma"><img src="img/ig07.jpg" alt="Mugs Roma de colores"><span class="tag">Mug Roma</span></a>
-      </div>
+  <section class="slider" id="heroSlider" aria-roledescription="carrusel" aria-label="Destacados">
+    <div class="slides">
+      <article class="slide on" aria-roledescription="diapositiva" aria-label="1 de 2">
+        <a class="slide-media" href="producto.html?p=carro-paseador" tabindex="-1" aria-hidden="true"><img src="img/hero-paseador.webp" alt="" width="1672" height="941" fetchpriority="high"></a>
+        <div class="slide-cap"><div class="wrap"><div class="cap-card">
+          <h1>Su primer carro, <span>hecho en Colombia</span>.</h1>
+          <p>Juguetes resistentes, diseñados y fabricados en nuestra planta.</p>
+          <div class="hero-cta">
+            <a class="btn btn-dark" href="coleccion.html?c=jugueteria">Comprar juguetería</a>
+            <a class="btn btn-line" href="mayoristas.html">Precios por mayor</a>
+          </div>
+        </div></div></div>
+      </article>
+      <article class="slide" aria-roledescription="diapositiva" aria-label="2 de 2">
+        <a class="slide-media" href="producto.html?p=jeep-montable" tabindex="-1" aria-hidden="true"><img src="img/hero-jeeps.webp" alt="" width="1672" height="941" decoding="async"></a>
+        <div class="slide-cap"><div class="wrap"><div class="cap-card">
+          <h2>Un jeep para cada <span>aventura</span>.</h2>
+          <p>Jeep montable MPC en cuatro colores, listo para rodar.</p>
+          <div class="hero-cta">
+            <a class="btn btn-dark" href="producto.html?p=jeep-montable">Ver jeep montable</a>
+            <a class="btn btn-line" href="mayoristas.html">Precios por mayor</a>
+          </div>
+        </div></div></div>
+      </article>
     </div>
+    <button class="sl-nav prev" type="button" aria-label="Diapositiva anterior"><svg class="ico" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
+    <button class="sl-nav next" type="button" aria-label="Diapositiva siguiente"><svg class="ico" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
+    <div class="dots"></div>
   </section>
 
   <section class="trust" aria-label="Por qué comprarnos">
@@ -49,7 +56,7 @@
     <div class="wrap">
       <div class="sec-head"><div><h2>Compra por categoría</h2><p>Dos líneas, una sola fábrica.</p></div><a class="link" href="coleccion.html">Ver todo el catálogo</a></div>
       <div class="cat-grid">
-        <a class="cat-card" href="coleccion.html?c=jugueteria&sub=Montables%20y%20triciclos"><div class="m"><img src="img/ig10.jpg" alt="" loading="lazy"></div><h3>Montables y triciclos <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></h3><span>4 modelos</span></a>
+        <a class="cat-card" href="coleccion.html?c=jugueteria&sub=Montables%20y%20triciclos"><div class="m"><img src="img/ig10.jpg" alt="" loading="lazy"></div><h3>Montables y triciclos <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></h3><span>Triciclos, paseadores y montables</span></a>
         <a class="cat-card" href="coleccion.html?c=jugueteria&sub=Carros%20y%20volquetas"><div class="m"><img src="img/ig01.jpg" alt="" loading="lazy"></div><h3>Carros y volquetas <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></h3><span>Volquetas y jeeps</span></a>
         <a class="cat-card" href="coleccion.html?c=hogar&sub=Cocina%20y%20mesa"><div class="m"><img src="img/ig04.jpg" alt="" loading="lazy"></div><h3>Cocina y mesa <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></h3><span>Bowls, bandejas, poncheras</span></a>
         <a class="cat-card" href="coleccion.html?c=hogar&sub=Vasos%20y%20mugs"><div class="m"><img src="img/ig08.jpg" alt="" loading="lazy"></div><h3>Vasos y mugs <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></h3><span>Hogar, bares y eventos</span></a>
